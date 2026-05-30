@@ -1,0 +1,62 @@
+﻿@model System.Data.DataSet
+@{
+    ViewBag.Title = "ActualizarPremiacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<form action="/Premiacion/actualizar" method="post">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Actualizar Premiacion&nbsp;</label>
+            <button onclick="location.href = '@Url.Action("Premiacion","Premiacion")'; return false;" class="btn btn-success">&nbsp;Rregresar</button>
+        </div>
+
+        <br />
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Id de la premiacion</label>
+                <input value="@Model.Tables[0].Rows[0]["idPremiacion"].ToString()" type="text" required class="form-control" id="idPremiacion" name="idPremiacion" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Id del evento</label>
+                <input value="@Model.Tables[0].Rows[0]["idEvento"].ToString()" type="text" required class="form-control" id="idEvento" name="idEvento" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Id participante</label>
+                <input value="@Model.Tables[0].Rows[0]["idParticipante"].ToString()" type="text" required class="form-control" id="idParticipante" name="idParticipante" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Puesto</label>
+                <input value="@Model.Tables[0].Rows[0]["puesto"].ToString()" type="text" required class="form-control" id="puesto" name="puesto" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Premio otorgado al participante</label>
+                <input value="@Model.Tables[0].Rows[0]["premio"].ToString()" type="text" required class="form-control" id="Premio" name="Premio" />
+            </div>
+            <br />
+        </div>
+
+        <div class="col" align="center">
+            <button type="submit" class="btn btn-primary" onclick="validarGuardado();">Guardar</button>
+        </div>
+
+    </div>
+</form>
+
+<br />
+
+

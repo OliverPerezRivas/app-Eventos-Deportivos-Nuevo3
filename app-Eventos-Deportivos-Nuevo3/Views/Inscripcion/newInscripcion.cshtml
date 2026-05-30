@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "newInscripcion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<h2>Bien venidos a la pagina de</h2>
+
+<form action="/Inscripcion/guardar" method="post">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Nueva Inscripcion&nbsp;</label>
+            <button onclick="location.href = '@Url.Action("Inscripcion","Inscripcion")'; return false;" class="btn btn-success">&nbsp;Rregresar</button>
+        </div>
+    </div>
+
+    <br />
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Id del participante</label>
+            <input type="text" required class="form-control" id="idParticipante" name="idParticipante" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Id del evento</label>
+            <input type="text" required class="form-control" id="idEvento" name="idEvento" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Id de la forma de pago</label>
+            <input type="text" required class="form-control" id="idFormaPago" name="idFormaPago" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Fecha de Inscripcion</label>
+            <input type="text" required class="form-control" id="fechaIsncripcion" name="fechaInscripcion" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Monto pagado</label>
+            <input type="text" required class="form-control" id="montoPagado" name="montoPagado" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <button type="submit" class="btn btn-primary" onclick="validarGuardado();">Guardar</button>
+    </div>
+
+</form>
+
+<br />
+

@@ -1,0 +1,47 @@
+﻿@model System.Data.DataSet
+@{
+    ViewBag.Title = "ActualizarDeporte";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+
+<form action="/Deporte/actualizar" method="post">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Actualizar Deporte&nbsp;</label>
+            <button onclick="location.href = '@Url.Action("Deporte","Deporte")'; return false;" class="btn btn-success">&nbsp;Rregresar</button>
+        </div>
+    </div>
+    <br />
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>idDeporte del deporte</label>
+            <input value="@Model.Tables[0].Rows[0]["idDeporte"].ToString()" type="text" required class="form-control" id="idDeporte" name="idDeporte" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Nombre del deporte</label>
+            <input value="@Model.Tables[0].Rows[0]["nombre"].ToString()" type="text" required class="form-control" id="nombre" name="nombre" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Categoria del deporte</label>
+            <input value="@Model.Tables[0].Rows[0]["categoria"].ToString()" type="text" required class="form-control" id="categoria" name="categoria" />
+        </div>
+        <br />
+    </div>
+
+    <div class="col" align="center">
+        <button type="submit" class="btn btn-primary" onclick="validarGuardado();">Guardar</button>
+    </div>
+
+</form>
+
+<br />
+

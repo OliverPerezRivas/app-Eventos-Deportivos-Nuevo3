@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "newEvento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<h2>Bien venidos a la pagina de</h2>
+
+<form action="/Evento/guardar" method="post">
+
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Nuevo Evento&nbsp;</label>
+            <button onclick="location.href = '@Url.Action("Evento","Evento")'; return false;" class="btn btn-success">&nbsp;Rregresar</button>
+        </div>
+       </div> 
+
+        <br />
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Nombre del evento</label>
+                <input type="text" required class="form-control" id="nombre" name="nombre" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Fecha del evento</label>
+                <input type="text" required class="form-control" id="fecha" name="fecha" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Lugar del evento</label>
+                <input type="text" required class="form-control" id="lugar" name="lugar" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Id del deporte</label>
+                <input type="text" required class="form-control" id="idDeporte" name="idDeporte" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Costo del evento</label>
+                <input type="text" required class="form-control" id="costo" name="costo" />
+            </div>
+            <br />
+        </div>
+
+        <div class="col" align="center">
+            <button type="submit" class="btn btn-primary" onclick="validarGuardado();">Guardar</button>
+
+            <br />
+        </div>
+
+    <br />
+
+</form>

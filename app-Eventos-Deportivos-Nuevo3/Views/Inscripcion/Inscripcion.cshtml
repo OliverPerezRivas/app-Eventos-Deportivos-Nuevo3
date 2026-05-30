@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Inscripcion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<h2>Mantenimiento de Inscripciones</h2>
+
+<form method="post" action="@Url.Action("Inscripcion","Inscripcion")">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+
+            <label>Inscripcion&nbsp;</label>
+            <input type="text" id="idInscripcion" name="idInscripcion" placeholder="Buscar por ID de inscrip..." style="color:black" />
+            <button type="submit" style="color:black" class="btn btn-default">Buscar</button>
+            <button onclick="location.href = '@Url.Action("newInscripcion","Inscripcion")'; return false;" class="btn btn-success">&nbsp;Nuevo</button>
+        </div>
+
+        <table class="table-responsive" border="1" style="color:black">
+            <thead>
+                <tr>
+                    <td style="width: 145px; text-align: center;"><b>Id inscripcion</b></td>
+                    <td style="width: 145px; text-align: center;"><b>Id participante</b></td>
+                    <td style="width: 120px; text-align: center;"><b>Id evento</b></td>
+                    <td style="width: 200px; text-align: center;"><b>Id forma de pago</b></td>
+                    <td style="width: 200px; text-align: center;"><b>Fecha de Incripcion</b></td>
+                    <td style="width: 165px; text-align: center;"><b>Monto pagado</b></td>
+                    <td ></td>
+                    <td></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (Model.Tables.Count > 0)
+                {
+                    if (Model.Tables[0].Rows.Count > 0)
+                    {
+                        for (int x = 0; x < Model.Tables[0].Rows.Count; x++)
+                        {
+                            <tr align="center">
+                                <td class="active">@Model.Tables[0].Rows[x]["idInscripcion"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["idParticipante"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["idEvento"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["idFormaPago"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["fechaInscripcion"].ToString("yyyy-MM-dd")</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["montoPagado"].ToString()</td>
+                                <td> <button type="button" class="btn btn-warning" onclick="location.href = '@Url.Action("ActualizarInscripcion","Inscripcion", new { idInscripcion = Model.Tables[0].Rows[x]["idInscripcion"].ToString() })'; return false;">Actualizar</button> </td>
+                                <td> <button type="button" class="btn btn-danger" onclick="location.href = '@Url.Action("eliminar","inscripcion", new {idInscripcion = Model.Tables[0].Rows[x]["idInscripcion"].ToString() })'; return false;">Eliminar</button> </td>
+                            </tr>
+
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</form>
+

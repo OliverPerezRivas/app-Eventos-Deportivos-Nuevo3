@@ -1,0 +1,71 @@
+﻿@model System.Data.DataSet
+@{
+    ViewBag.Title = "ActualizarInscripcion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+
+<form action="/Inscripcion/actualizar" method="post">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Actualizar Inscripcion&nbsp;</label>
+            <button onclick="location.href = '@Url.Action("Inscripcion","Inscripcion")'; return false;" class="btn btn-success">&nbsp;Rregresar</button>
+        </div>
+
+        <br />
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Id de la inscripcion</label>
+                <input value="@Model.Tables[0].Rows[0]["idInscripcion"].ToString()" type="text" required class="form-control" id="idInscripcion" name="idInscripcion" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Id del participante</label>
+                <input value="@Model.Tables[0].Rows[0]["idParticipante"].ToString()" type="text" required class="form-control" id="idParticipante" name="idParticipante" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Id del evento</label>
+                <input value="@Model.Tables[0].Rows[0]["idEvento"].ToString()" type="text" required class="form-control" id="idEvento" name="idEvento" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Id de la forma de pago</label>
+                <input value="@Model.Tables[0].Rows[0]["idFormaPago"].ToString()" type="text" required class="form-control" id="idFormaPago" name="idFormaPago" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Fecha de Inscripcion</label>
+                <input value="@Model.Tables[0].Rows[0]["fechaInscripcion"].ToString()" type="text" required class="form-control" id="fechaIsncripcion" name="fechaInscripcion" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Monto pagado</label>
+                <input value="@Model.Tables[0].Rows[0]["montoPagado"].ToString()" type="text" required class="form-control" id="montoPagado" name="montoPagado" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <button type="submit" class="btn btn-primary" onclick="validarGuardado();">Guardar</button>
+        </div>
+
+        <br />
+    </div>
+
+    <br />
+
+</form>
+
+

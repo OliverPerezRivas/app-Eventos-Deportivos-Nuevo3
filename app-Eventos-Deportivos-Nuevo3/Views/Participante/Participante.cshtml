@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Participante";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<h2>Mantenimiento de Participantes</h2>
+
+<form method="post" action="@Url.Action("Participante","Participante")">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+
+            <label>Participante&nbsp;</label>
+            <input type="text" id="idParticipante" name="idParticipante" placeholder="Buscar por ID de participa..." style="color:black" />
+            <button type="submit" style="color:black" class="btn btn-default">Buscar</button>
+            <button onclick="location.href = '@Url.Action("newParticipante","Participante")'; return false;" class="btn btn-success">&nbsp;Nuevo</button>
+        </div>
+        <table class="table-responsive" border="1" style="color:black">
+            <thead>
+                <tr>
+                    <td style="width: 165px; text-align: center;"><b>Id Participante</b></td>
+                    <td style="width: 260px; text-align: center; "><b>Nombres</b></td>
+                    <td style="width: 230px; text-align: center; "><b>Apellidos</b></td>
+                    <td style="width: 160px; text-align: center; "><b>Documento</b></td>
+                    <td style="width: 180px; text-align: center; "><b>Fecha de Nacimiento</b></td>
+                    <td style="width: 250px; text-align: center; "><b>Emeil</b></td>
+                    <td style="width: 120px; text-align: center; "><b>Id Deporte</b></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (Model.Tables.Count > 0)
+                {
+                    if (Model.Tables[0].Rows.Count > 0)
+                    {
+                        for (int x = 0; x < Model.Tables[0].Rows.Count; x++)
+                        {
+                            <tr align="center">
+                                <td class="active">@Model.Tables[0].Rows[x]["idParticipante"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["nombres"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["apellidos"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["documento"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["fechaNacimiento"].ToString("yyyy-MM-dd")</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["email"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["idDeporte"].ToString()</td>
+                                <td> <button type="button" class="btn btn-warning" onclick="location.href = '@Url.Action("ActualizarParticipante","Participante", new { idParticipante = Model.Tables[0].Rows[x]["idParticipante"].ToString() })'; return false;">Actualizar</button> </td>
+                                <td> <button type="button" class="btn btn-danger" onclick="location.href = '@Url.Action("eliminar","Participante", new {idParticipante = Model.Tables[0].Rows[x]["idParticipante"].ToString() })'; return false;">Eliminar</button> </td>
+                            </tr>
+
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+</form>
+

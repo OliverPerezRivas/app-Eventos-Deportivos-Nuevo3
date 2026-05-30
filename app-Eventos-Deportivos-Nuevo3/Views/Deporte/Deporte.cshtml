@@ -1,0 +1,57 @@
+﻿@model System.Data.DataSet
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<h2>Mantenimiento de Deportes</h2>
+
+<form method="post" action="@Url.Action("Deporte","Deporte")">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            
+                <label>Deporte&nbsp;</label>
+                <input type="text" id="idDeporte" name="idDeporte" placeholder="Buscar por ID de deporte" style="color:black" />
+                <button type="submit" style="color:black" class="btn btn-default">Buscar</button>
+                <button onclick="location.href = '@Url.Action("newDeporte","Deporte")'; return false;" class="btn btn-success">&nbsp;Nuevo</button>
+        </div>
+
+        <table class="table-responsive" border="1" style="color:black">
+            <thead>
+                <tr>
+                    <td style="width: 100px; text-align: center;"><b>Id Deporte</b></td>
+                    <td style="width: 90px; text-align: center;"><b>Nombre</b></td>
+                    <td style="width: 100px; text-align: center;"><b>Categoria</b></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (Model.Tables.Count > 0)
+                {
+                    if (Model.Tables[0].Rows.Count > 0)
+                    {
+                        for (int x = 0; x < Model.Tables[0].Rows.Count; x++)
+                        {
+                            <tr align="center">
+                                <td class="active">@Model.Tables[0].Rows[x]["idDeporte"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["nombre"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["categoria"].ToString()</td>
+                                <td> <button type="button" class="btn btn-warning" onclick="location.href = '@Url.Action("ActualizarDeporte","Deporte", new {idDeporte = Model.Tables[0].Rows[x]["idDeporte"].ToString() })'; return false;">Actualizar</button> </td>
+                                <td> <button type="button" class="btn btn-danger" onclick="location.href = '@Url.Action("eliminar","Deporte", new {idDeporte = Model.Tables[0].Rows[x]["idDeporte"].ToString() })'; return false;">Eliminar</button> </td>
+                            </tr>
+
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+</form>
+

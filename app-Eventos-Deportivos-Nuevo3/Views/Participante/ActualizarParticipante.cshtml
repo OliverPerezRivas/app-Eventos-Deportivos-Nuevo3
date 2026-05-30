@@ -1,0 +1,76 @@
+﻿@model System.Data.DataSet
+@{
+    ViewBag.Title = "ActualizarParticipante";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+
+<form action="/Participante/actualizar" method="post">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Actualizar Participante&nbsp;</label>
+            <button onclick="location.href = '@Url.Action("Participante","Participante")'; return false;" class="btn btn-success">&nbsp;Rregresar</button>
+        </div>
+
+        <br />
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Id del participante</label>
+                <input value="@Model.Tables[0].Rows[0]["idParticipante"].ToString()" type="text" required class="form-control" id="idParticipante" name="idParticipante" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Nombres del participante</label>
+                <input value="@Model.Tables[0].Rows[0]["nombres"].ToString()" type="text" required class="form-control" id="nombres" name="nombres" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Apellidos del participante</label>
+                <input value="@Model.Tables[0].Rows[0]["apellidos"].ToString()" type="text" required class="form-control" id="apellidos" name="apellidos" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Documento del participante</label>
+                <input value="@Model.Tables[0].Rows[0]["documento"].ToString()" type="text" required class="form-control" id="documento" name="documento" />
+            </div>
+        </div>
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Fecha de nacimiento del participante</label>
+                <input value="@Model.Tables[0].Rows[0]["fechaNacimiento"].ToString()" type="text" required class="form-control" id="fechaNacimiento" name="fechaNacimiento" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Email del participante</label>
+                <input value="@Model.Tables[0].Rows[0]["email"].ToString()" type="text" required class="form-control" id="email" name="email" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Id del deporte</label>
+                <input value="@Model.Tables[0].Rows[0]["idDeporte"].ToString()" type="text" required class="form-control" id="idDeporte" name="idDeporte" />
+            </div>
+            <br />
+        </div>
+
+
+        <div class="col" align="center">
+            <button type="submit" class="btn btn-primary" onclick="validarGuardado();">Guardar</button>
+        </div>
+
+    </div>
+
+</form>
+
+<br />

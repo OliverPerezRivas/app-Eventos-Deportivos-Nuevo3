@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "newPremiacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<h2>Bien venidos a la pagina de</h2>
+
+<form action="/Premiacion/guardar" method="post">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Nuevo Premiacion&nbsp;</label>
+            <button onclick="location.href = '@Url.Action("Premiacion","Premiacion")'; return false;" class="btn btn-success">&nbsp;Rregresar</button>
+        </div>
+    </div>
+    <br />
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Id del evento</label>
+            <input type="text" required class="form-control" id="idEvento" name="idEvento" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Id participante</label>
+            <input type="text" required class="form-control" id="idParticipante" name="idParticipante" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Puesto</label>
+            <input type="text" required class="form-control" id="puesto" name="puesto" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Premio otorgado al participante</label>
+            <input type="text" required class="form-control" id="Premio" name="Premio" />
+        </div>
+        <br />
+    </div>
+
+    <div class="col" align="center">
+        <button type="submit" class="btn btn-primary" onclick="validarGuardado();">Guardar</button>
+    </div>
+
+</form>
+
+<br />
+

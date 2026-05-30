@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+
+    body {
+        background-color: #0b1322 !important; /* Un tono azul oscuro/negro deportivo muy elegante */
+    }
+    /* El bloque principal ahora usa una imagen de fondo en vez de color negro */
+    .jumbotron-deportivo {
+        position: relative;
+        /* Reemplaza esta URL por la de la imagen de varios deportes que prefieras */
+        background: url('https://th.bing.com/th/id/R.af8a63494b6a3ce020314cbd9f545f2f?rik=EZEnGIf7m%2fW5Hw&riu=http%3a%2f%2fwww.tuproyectodevida.pe%2fwp-content%2fuploads%2f2023%2f02%2fbeneficios-deporte-adolescencia-1200x628.jpg&ehk=IddgBDGBtsdL7tCPsyPqyAoGmXRxJzDHocLKe3WmAC8%3d&risl=&pid=ImgRaw&r=0') center/cover no-repeat;
+        color: #ffffff;
+        padding: 60px 30px;
+        margin-top: 20px;
+        margin-bottom: 35px;
+        border-radius: 6px;
+        border-bottom: 6px solid #ff6a00; /* Tu línea naranja se mantiene abajo */
+        z-index: 1;
+        overflow: hidden;
+    }
+
+        /* Esta capa es el truco para que la imagen no opaque tus letras blancas */
+        .jumbotron-deportivo::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.65); /* Sombra negra transparente sobre la foto */
+            z-index: -1;
+        }
+
+    .btn-azul-deportivo {
+        background-color: #0056b3 !important;
+        color: #ffffff !important;
+        font-weight: bold;
+        text-transform: uppercase;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 4px;
+        box-shadow: 0 4px 10px rgba(0, 86, 179, 0.4);
+    }
+
+    /* Contenedor de la descripción */
+    .bloque-descripcion {
+        background-color: #198754 !important;
+        padding: 30px;
+        border-radius: 5px;
+        border-left: 7px solid #ff6a00;
+        box-shadow: 0 4px 17.2px rgba(0,0,0,0.05);
+        margin-bottom: 30px;
+    }
+
+    /* Estilo para las imágenes del collage de deportes abajo */
+    .foto-deporte {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 4px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        margin-bottom: 15px;
+        border-bottom: 3px solid #198754; /* Detalle Verde */
+    }
+</style>
+
+<div class="jumbotron jumbotron-deportivo">
+    <h1 style="margin-top: 0; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 52px;">EVENTOS DEPORTIVOS</h1>
+    <p class="lead" style="color: #e0e0e0; font-weight: 400;">Sistema de Eventos Deportivos</p>
+    <p style="margin-top: 25px;">
+        <a class="btn btn-primary btn-lg btn-azul-deportivo" href="#">EVENTOS DEPORTIVOS &raquo;</a>
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="bloque-descripcion">
+            <h2 style="margin-top: 0; font-weight: bold; color: #ffffff; text-transform: uppercase; font-size: 24px;">
+                A qué nos dedicamos
+            </h2>
+
+            <p style="font-size: 16px; color: #ffffff; line-height: 1.7; margin-top: 20px; text-align: justify;">
+                Somos la organización líder encargada de coordinar y dar vida a las competencias deportivas más importantes de Guatemala.
+                Nos apasiona promover un estilo de vida activo, creando espacios donde atletas de todas las edades puedan competir de forma segura, ordenada y profesional.
+            </p>
+
+            <p style="font-size: 15px; color: #ffffff; line-height: 1.7; text-align: justify;">
+                A través de esta plataforma, hacemos que todo sea más sencillo: desde el registro rápido de los participantes y el control de pagos,
+                hasta la gestión de horarios, resultados en vivo y las ceremonias de premiación. Nuestro objetivo es que tú solo te enfoques en disfrutar del juego y superar tus propios límites.
+            </p>
+
+            <p style="margin-top: 30px; margin-bottom: 0;">
+                <a class="btn btn-default" style="font-weight: bold; border-color: #555; text-transform: uppercase; padding: 8px 20px;" href="#">
+                    Acerca de nosotros &raquo;
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-xs-6">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.cqNxDmVzj9GcK2-NEtYPQwHaEJ?r=0&cb=thfc1falcon&rs=1&pid=ImgDetMain&o=7&rm=3" class="foto-deporte" alt="Fútbol" />
+            </div>
+            <div class="col-xs-6">
+                <img src="https://thumbs.dreamstime.com/b/young-silhouetted-basketball-player-jumping-high-to-target-basketball-hoop-achieves-to-score-flying-slam-dunk-sunset-196158907.jpg" class="foto-deporte" alt="Básquetbol" />
+            </div>
+            <div class="col-xs-6">
+                <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=400&q=80" class="foto-deporte" alt="Ciclismo" />
+            </div>
+            <div class="col-xs-6">
+                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=400&q=80" class="foto-deporte" alt="Entrenamiento" />
+            </div>
+            <div class="col-xs-6">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.hqB9RcJThzBRSmZCBdh_IgHaDv?r=0&cb=thfc1falcon&rs=1&pid=ImgDetMain&o=7&rm=3" class="foto-deporte" alt="Tenis" />
+            </div>
+            <div class="col-xs-6">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.YU_ADcpv-3mq9cL2GmLKkwHaEO?r=0&cb=thfc1falcon&pid=ImgDet&w=474&h=270&rs=1&o=7&rm=3" class="foto-deporte" alt="Maraton" />
+            </div>
+        </div>
+    </div>
+</div>

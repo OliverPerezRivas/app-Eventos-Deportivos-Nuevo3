@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "newParticipante";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<h2>Bien venidos a la pagina de </h2>
+
+<form action="/Participante/guardar" method="post">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Nuevo Participante&nbsp;</label>
+            <button onclick="location.href = '@Url.Action("Participante","Participante")'; return false;" class="btn btn-success">&nbsp;Rregresar</button>
+        </div>
+    </div>
+
+    <br />
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Nombres del participante</label>
+            <input type="text" required class="form-control" id="nombres" name="nombres" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Apellidos del participante</label>
+            <input type="text" required class="form-control" id="apellidos" name="apellidos" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Documento del participante</label>
+            <input type="text" required class="form-control" id="documento" name="documento" />
+        </div>
+    </div>
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Fecha de nacimiento del participante</label>
+            <input type="text" required class="form-control" id="fechaNacimiento" name="fechaNacimiento" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Email del participante</label>
+            <input type="text" required class="form-control" id="email" name="email" />
+        </div>
+    </div>
+
+    <div class="col" align="center">
+        <div class="form-group">
+            <label>Id del deporte</label>
+            <input type="text" required class="form-control" id="idDeporte" name="idDeporte" />
+        </div>
+        <br />
+    </div>
+
+
+    <div class="col" align="center">
+        <button type="submit" class="btn btn-primary" onclick="validarGuardado();">Guardar</button>
+    </div>
+
+</form>
+
+<br />
+

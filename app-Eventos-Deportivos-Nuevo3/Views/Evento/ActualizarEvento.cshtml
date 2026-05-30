@@ -1,0 +1,69 @@
+﻿@model System.Data.DataSet
+@{
+    ViewBag.Title = "ActualizarEvento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<form action="/Evento/Actualizar" method="post">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Actualizar Evento&nbsp;</label>
+            <button onclick="location.href = '@Url.Action("Evento","Evento")'; return false;" class="btn btn-success">&nbsp;Rregresar</button>
+        </div>
+
+        <br />
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>idEvento del evento</label>
+                <input value="@Model.Tables[0].Rows[0]["idEvento"].ToString()" type="text" required class="form-control" id="idEvento" name="idEvento" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Nombre del evento</label>
+                <input value="@Model.Tables[0].Rows[0]["nombre"].ToString()" type="text" required class="form-control" id="nombre" name="nombre" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Fecha del evento</label>
+                <input value="@Model.Tables[0].Rows[0]["fecha"].ToString()" type="text" required class="form-control" id="fecha" name="fecha" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Lugar del evento</label>
+                <input value="@Model.Tables[0].Rows[0]["lugar"].ToString()" type="text" required class="form-control" id="lugar" name="lugar" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Id del deporte</label>
+                <input value="@Model.Tables[0].Rows[0]["idDeporte"].ToString()" type="text" required class="form-control" id="idDeporte" name="idDeporte" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Costo del evento</label>
+                <input value="@Model.Tables[0].Rows[0]["costo"].ToString()" type="text" required class="form-control" id="costo" name="costo" />
+            </div>
+            <br />
+        </div>
+
+        <div class="col" align="center">
+            <button type="submit" class="btn btn-primary" onclick="validarGuardado();">Guardar</button>
+        </div>
+    </div>
+
+
+</form>
+
+<br />

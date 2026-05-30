@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Premiacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<h2>Mantenimiento de Premiaciones</h2>
+
+<form method="post" action="@Url.Action("Premiacion","Premiacion")">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+
+            <label>Premiacion&nbsp;</label>
+            <input type="text" id="idPremiacion" name="idPremiacion" placeholder="Buscar por ID de Premiacion" style="color:black" />
+            <button type="submit" style="color:black" class="btn btn-default">Buscar</button>
+            <button onclick="location.href = '@Url.Action("newPremiacion","Premiacion")'; return false;" class="btn btn-success">&nbsp;Nuevo</button>
+        </div>
+
+        <table class="table-responsive" border="1" style="color:black">
+            <thead>
+                <tr>
+                    <td style="width: 100px; text-align: center;"><b>Id premiacion</b></td>
+                    <td style="width: 80px; text-align: center;"><b>Id evento</b></td>
+                    <td style="width: 100px; text-align: center;"><b>Id participante</b></td>
+                    <td style="width: 60px; text-align: center;"><b>Puesto</b></td>
+                    <td style="width: 70px; text-align: center;"><b>Premio</b></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (Model.Tables.Count > 0)
+                {
+                    if (Model.Tables[0].Rows.Count > 0)
+                    {
+                        for (int x = 0; x < Model.Tables[0].Rows.Count; x++)
+                        {
+                            <tr align="center">
+                                <td class="active">@Model.Tables[0].Rows[x]["idPremiacion"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["idEvento"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["idParticipante"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["puesto"].ToString()</td>
+                                <td class="active">@Model.Tables[0].Rows[x]["premio"].ToString()</td>
+                                <td> <button type="button" class="btn btn-warning" onclick="location.href = '@Url.Action("ActualizarPremiacion","Premiacion", new { idPremiacion = Model.Tables[0].Rows[x]["idPremiacion"].ToString() })'; return false;">Actualizar</button> </td>
+                                <td> <button type="button" class="btn btn-danger" onclick="location.href = '@Url.Action("eliminar","premiacion", new {idPremiacion = Model.Tables[0].Rows[x]["idPremiacion"].ToString() })'; return false;">Eliminar</button> </td>
+                            </tr>
+
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</form>
+

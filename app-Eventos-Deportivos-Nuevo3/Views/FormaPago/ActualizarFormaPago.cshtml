@@ -1,0 +1,42 @@
+﻿@model System.Data.DataSet
+@{
+    ViewBag.Title = "ActualizarFormaPago";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+
+<form action="/FormaPago/actualizar" method="post">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <label>Actualizar forma de pago&nbsp;</label>
+            <button onclick="location.href = '@Url.Action("FromaPago","FormaPago")'; return false;" class="btn btn-success">&nbsp;Rregresar</button>
+        </div>
+
+        <br />
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Id de la forma de pago</label>
+                <input value="@Model.Tables[0].Rows[0]["idFormaPago"].ToString()" type="text" required class="form-control" id="idFormaPago" name="IdFormaPago" />
+            </div>
+        </div>
+
+        <div class="col" align="center">
+            <div class="form-group">
+                <label>Descripcion de la forma de pago</label>
+                <input value="@Model.Tables[0].Rows[0]["descripcion"].ToString()" type="text" required class="form-control" id="descripcion" name="descripcion" />
+            </div>
+            <br />
+        </div>
+
+
+        <div class="col" align="center">
+            <button type="submit" class="btn btn-primary" onclick="validarGuardado();">Guardar</button>
+        </div>
+    </div>
+
+</form>
+
+<br />
